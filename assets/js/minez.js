@@ -29,7 +29,8 @@ $(document).ready(function(){
     },
     removeHandler: function(element,type,handler){
       if(element.removeEventListener){
-        element.removeEventListener(type,handler,false);
+        element.removeEventListener(type,handler,true);
+        console.log(666)
       }
       else if(element.detachEvent){
         element.detachEvent("on"+type,handler); 
@@ -52,22 +53,35 @@ $(document).ready(function(){
     };
 
   var num=0;// 1
+  var locked=false;
   var finished=true;
   var up,down,upBack,downBack;
   function handleMouseWheel(event) {
+    if(locked===false){
     event = EventUtil.getEvent(event);
     var delta = EventUtil.getWheelDelta(event);
     if (delta<=-120) {changeNum(1);}
     else if(delta>=120){changeNum(-1);}
-    if(finished===false){
-      //stopImmediatePropagation();
-    }
+
     /*num=num-delta/120;*/
     console.log("scroll",num,delta,finished);
     change();
     }
+    }
+
+      $(".line").mouseenter(function(){
+locked=true;
+console.log(locked)
+  });
+  $(".line").mouseleave(function(){
+locked=false;
+console.log(locked)
+  });
+  var li = document.getElementById('line')
+
   EventUtil.addHandler(document, "mousewheel", handleMouseWheel);
   EventUtil.addHandler(document, "DOMMouseScroll", handleMouseWheel);
+ 
   function changeNum(plusMinus){
     if (finished===true&&(num>=0&&num<=4&&plusMinus===1)||(num>=1&&num<=5&&plusMinus===-1)) {num=num+plusMinus;}
     else{num=num;}
@@ -186,7 +200,8 @@ $(".starsm-arch-div").children().animate({marginLeft:"-20%"})
   function resume4Down(){
     $('body').animate( {scrollTop: "350px"}, 700);
     /*$("#start-div").animate({top:"0px"},400);*/
-    $(".line").animate({height:$(".line-div").height()+200},1500);
+    $(".line").animate({height:$(".line-div").height()+100},1500);
+
     /*setTimeout(function() {$("body").css("overflow-y","scroll");},1500);*/
     $("body").css("overflow-y","scroll");
   }
@@ -259,8 +274,8 @@ reset();
     $(this).children(".nav-text").fadeOut("50");
     })
   $("#title-text").mouseenter(function(){
-    $("#title-text").text("VIEW MY LIFE");
-    $("#title-text").css("font-size","280%");
+    $("#title-text").text("READ MY RESUME");
+    $("#title-text").css("font-size","200%");
     $("#star2").css("animation-duration","1s")
   });
   $("#title-text").mouseleave(function(){
@@ -277,7 +292,7 @@ reset();
   $("#arrow-up").click(function(){changeNum(-1);change();console.log(num);})
   $("#arrow-down").click(function(){changeNum(1);change();})
 
-  $("#title-text").click(function(){/*#title-text,.resume-img-div*/
+  $("#title-text").click(function(){
     changeNum(1);
     change();
   });

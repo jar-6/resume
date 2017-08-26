@@ -46,13 +46,14 @@ q:before, q:after {
     content:none;
 }
 
-a {
+a,a:hover,a:active,a:visited{
     margin:0;
     padding:0;
     border:0;
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    color:black;
 }
 
 ins {
@@ -250,6 +251,7 @@ body{
 }
 .resume-text-div{
   display: none;
+   z-index: 300;
 }
 .resume-img-div{
   overflow: hidden;
@@ -273,6 +275,7 @@ body{
 }
 .resume-text{
     line-height: 30px;
+
 /*  position: relative;
 
   text-align: left;
@@ -291,6 +294,7 @@ line-height: 50px;
   background-color: #ffffff;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
   border-radius: 2px;
+  margin-bottom: 200px;
 }
 .line-text-div{
   text-align: center;
@@ -308,12 +312,19 @@ line-height: 50px;
   pointer-events: none;
 }*/
 .work-web-img{
-  margin:20% 20% 20% 30%;
+  margin:15% 20% 15% 30%;
   border-radius: 50%;
+  width: 180px;
 }
 .work-web-title{
   font-size: 20px;
+  margin-bottom: 20px;
 }
+.work-web-sm{
+    margin-bottom: 20px;
+    font-weight: lighter;
+}
+
 .work-web-mask{
   position: absolute;
   display: none;
@@ -334,6 +345,7 @@ line-height: 50px;
   z-index: 100;
   top: 50%;
   margin-top:-30px;
+  line-height: 20px;
   left: 50%;
   margin-left: -50%;
   width: 100%;
