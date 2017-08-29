@@ -30,7 +30,7 @@ $(document).ready(function(){
     removeHandler: function(element,type,handler){
       if(element.removeEventListener){
         element.removeEventListener(type,handler,true);
-        console.log(666)
+        
       }
       else if(element.detachEvent){
         element.detachEvent("on"+type,handler); 
@@ -71,11 +71,18 @@ $(document).ready(function(){
 
       $(".line").mouseenter(function(){
 locked=true;
-console.log(locked)
+
   });
   $(".line").mouseleave(function(){
 locked=false;
-console.log(locked)
+  });
+      $("#resume3-text").mouseenter(function(){
+locked=true;
+
+  });
+  $("#resume3-text").mouseleave(function(){
+locked=false;
+
   });
   var li = document.getElementById('line')
 
@@ -90,10 +97,12 @@ console.log(locked)
     $("body,#black").css("height",$(window).height());
     $(".content").css("top",0.5*$(window).height());
     $('body').animate( {scrollTop: 0}, 50);
-    if ($(window).width()<500){
+    if ($(window).width()<600){
       $("#resume-star").hide();
+      $(".nav-text").hide();
+      $(".resume-text").css("font-size","12px");
     }
-    else if ($(window).width()>=500&&(num===2||num===3)){$("#resume-star").show();}
+    else if ($(window).width()>=600&&(num===2||num===3)){$("#resume-star").show();}
   }
   function reset(){
     $("#title-text").show();
@@ -153,7 +162,7 @@ console.log(locked)
       }
     }
   }
-  function resume2Star(){
+  function resume2Star(){if ($(window).width()>600){
     $(".starsm-arch-div").show();
      $("#resume-star").show();
 
@@ -162,15 +171,16 @@ console.log(locked)
     setTimeout(function() {$("#starsm-text3").animate({top:"50px"},600)}, 30);
     setTimeout(function() {$("#starsm-text4").animate({top:"-30px"},300)}, 60);
   }
+}
   function resume2StarBack(){
     $(".starsm-arch-div").animate({top:"-300px"},500)
     setTimeout(function() {$("#resume-star").hide()}, 500);
   }
-  function resume3Star(){
+  function resume3Star(){if ($(window).width()>600){
     $(".starsm-arch-div").show();
     $(".starsm-code-div").show();
-$("#starsm-arch").animate({width:"30%"},500);
-$(".starsm-arch-div").children().animate({marginLeft:"-60%"},700);
+$("#starsm-arch").animate({width:"200px"},500);
+$(".starsm-arch-div").children().animate({marginLeft:"-150px"},700);
     setTimeout(function() {$("#starsm-text5").animate({top:"-100px"},700)}, 0);
     setTimeout(function() {$("#starsm-text6").animate({top:"-50px"},600)}, 30);
     setTimeout(function() {$("#starsm-text7").animate({top:"-30px"},300)}, 60);
@@ -179,6 +189,7 @@ $(".starsm-arch-div").children().animate({marginLeft:"-60%"},700);
     setTimeout(function() {$("#starsm-text10").animate({top:"50px"},600)}, 30);
     setTimeout(function() {$("#starsm-text11").animate({top:"-30px"},300)}, 60);
   }
+}
   function resume3StarBack(){
     $(".starsm-code-div").animate({top:"-300px"},500)
     setTimeout(function() {
@@ -229,9 +240,11 @@ reset();
     }
     else if (num===3) {
       resume3Star();
+      
     }
     else if(num>3){
       resumeStarTo3();
+      
     }
     else{
      resumeStarTo2(); 
