@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,8 +13,13 @@
   <script src="assets/js/minez.js" type='text/javascript'></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/snap.svg.js"></script>
+  <!--[if lt IE 9]>
+ <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+ <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
+
 <div id="black" class="div-bg"></div>
 <div id="nav">
    <div id="arrow-up" class="arrow">
@@ -21,12 +28,31 @@
   <div id="arrow-down" class="arrow">
     <img src="assets/img/arrow-down.png" class="arrow-img">
   </div>
-  <div class="nav-div" id="nav-div1"><p class="nav-text">资料  </p></div>
-  <div class="nav-div" id="nav-div2"><p class="nav-text">经历  </p></div>
-  <div class="nav-div" id="nav-div3"><p class="nav-text">技能  </p></div>
-  <div class="nav-div" id="nav-div4"><p class="nav-text">作品  </p></div>
-  <div class="nav-div" id="nav-div5"><p class="nav-text">联系  </p></div>
-</div>
+  <div class="nav-div" id="nav-div1">
+    <!--[if lt IE 9]><img class="nav-ie" src="./assets/img/nav.png"/>
+    <img src="./assets/img/nav-white.png"/><![endif]-->
+    <p class="nav-text">资料  </p></div>
+  <div class="nav-div" id="nav-div2">
+    <p class="nav-text">经历  </p>
+ <!--[if lt IE 9]><img class="nav-ie" src="./assets/img/nav.png"/>
+    <img src="./assets/img/nav-white.png"/><![endif]-->
+  </div>
+  <div class="nav-div" id="nav-div3">
+    <p class="nav-text">技能  </p>
+ <!--[if lt IE 9]><img class="nav-ie" src="./assets/img/nav.png"/>
+    <img src="./assets/img/nav-white.png"/><![endif]-->
+  </div>
+  <div class="nav-div" id="nav-div4">
+    <p class="nav-text">作品  </p>
+ <!--[if lt IE 9]><img class="nav-ie" src="./assets/img/nav.png"/>
+    <img src="./assets/img/nav-white.png"/><![endif]-->
+  </div>
+  <div class="nav-div" id="nav-div5">
+    <p class="nav-text">联系  </p>
+ <!--[if lt IE 9]><img class="nav-ie" src="./assets/img/nav.png"/>
+    <img src="./assets/img/nav-white.png"/><![endif]-->
+  </div>
+</div> <!-- nav-->
 <div class="container-fluid">
   <div id="start" class="row div-bg">
     <div class="col-lg-2 col-md-2 col-sm-1"></div>
@@ -38,11 +64,11 @@
 
               <defs>
             <pattern id="fill-start" patternUnits="userSpaceOnUse" width="256" height="191">
-                  <image xlink:href="assets\img\avatar.jpg" x="-25%" y="-15%"  src="assets\img\avatar.jpg" class="no-svg"  width="150%" height="120%" />
+                  <image xlink:href="assets\img\avatar.jpg" x="-25%" y="-15%"  src="assets\img\avatar-ie.png" class="no-svg"  width="150%" height="120%" />
                 </pattern> 
    
                <pattern id="fill-resume5" patternUnits="userSpaceOnUse" width="800" height="640">
-                  <image xlink:href="assets\img\avatar2.jpg" x="-105%" y="-165%" width="315%" height="315%" />
+                  <image xlink:href="assets\img\avatar2.jpg" src="assets\img\svg-ie.png" x="-105%" y="-165%" width="315%" height="315%" />
                 </pattern>        
                 <filter id="filter-star2" x="-10%" y="-10%" width="150%" height="120%">
                   <feOffset result="offOut" in="SourceGraphic" />
@@ -72,7 +98,7 @@
               </g>
             </svg>
           </div><!-- svg-div -->
-        
+        <img id="white-ie" src="assets/img/white-ie.png"/>
           <div id="title">
             <p id="title-text">范佳星个人简历</p>
           </div>
@@ -140,7 +166,7 @@
           </div>
 
           <div id="resume-star">
-            <div id="starsm-arch">
+           <!--  <div id="starsm-arch"> -->
               <div id="starsm-div1" class="starsm-arch-div">
                 <div id="starsm-text1"><img src="assets/img/star-arch.png"/>Photoshop</div>
               </div>
@@ -153,10 +179,10 @@
               <div id="starsm-div4" class="starsm-arch-div">
                 <div id="starsm-text4"> <img src="assets/img/star-arch.png"/> AutoCAD</div>
               </div>            
-            </div>
-            <div id="starsm-code">
+     <!--        </div>
+            <div id="starsm-code"> -->
               <div id="starsm-div5" class="starsm-code-div">
-                <div id="starsm-text5"> <img src="assets/img/star-arch.png"/> >Javascript</div>
+                <div id="starsm-text5"> <img src="assets/img/star-arch.png"/> Javascript</div>
               </div>
               <div id="starsm-div6" class="starsm-code-div">
                 <div id="starsm-text6"> <img src="assets/img/star-arch.png"/>HTML</div>
@@ -179,7 +205,7 @@
               <div id="starsm-div12" class="starsm-code-div">
                 <div id="starsm-text12"> <img src="assets/img/star-arch.png"/>Python</div>
               </div> 
-            </div> 
+           <!--  </div> --> 
           </div><!-- resume-star --> 
          
 
@@ -253,7 +279,7 @@
                 <div class="work-web-mask">
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 no-event">
-                  <img class="work-web-img img-responsive no-event" src="assets\img\clock.jpg"/>
+                  <img class="work-web-img img-responsive no-event" src="assets\img\clock.png"/>
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8 no-event" >
                   <div class="work-web-text no-event">

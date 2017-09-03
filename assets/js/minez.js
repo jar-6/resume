@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+
   var client = function () {
     window.event;  
       var engine = {
@@ -15,6 +16,8 @@ $(document).ready(function(){
         engine: engine
       };
     }();
+    if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE7.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE9.0"){client.engine.ie=9}
+
   var EventUtil = {
     addHandler: function(element,type,handler){
       if(element.addEventListener){
@@ -51,11 +54,16 @@ $(document).ready(function(){
         }
       }
     };
-
+        if(client.engine.ie===9)  {alert("为获得最佳浏览效果，请使用支持HTML5的浏览器")}
+if(client.engine.ie===0){
+  $(".nav-div").css("background-color","white");
+  $(".nav-div").css("border","1px #71c7d5 solid ");
+}
   var num=0;// 1
   var locked=false;
   var finished=true;
   var up,down,upBack,downBack;
+
   function handleMouseWheel(event) {
     if(locked===false){
     event = EventUtil.getEvent(event);
@@ -94,9 +102,11 @@ locked=false;
     else{num=num;}
   }
   function ready(){
+  
     $("body,#black").css("height",$(window).height());
     $(".content").css("top",0.5*$(window).height());
     $('body').animate( {scrollTop: 0}, 50);
+    $('html').animate( {scrollTop: 0}, 50);
     if ($(window).width()<600){
       $("#resume-star").hide();
       $(".nav-text").hide();
@@ -109,7 +119,9 @@ locked=false;
     $("#black").fadeTo(1000,1);
     $(".line").fadeOut(1000);  
     $("#nav").hide();
+    if(client.engine.ie===0){
     $("#arrow-div").hide();
+    if(client.engine.ie===0){
     var svg = Snap('#svg');
     var star1Path = svg.select('#star1-path1');
     var star2Path = svg.select('#star1-path2');
@@ -122,13 +134,22 @@ locked=false;
     $("#star1").attr("fill","url(#fill-start)");
     $("#star2").show();
     setTimeout(function(){$("#star3").hide();},300);
+    }
+    }
+    else if(client.engine.ie===9){
+
+      $("#white-ie").hide();
+      $(".svg-div").show();
+    }
   }
   function start(){
+
     $("#title-text").hide();
     $("#black").fadeTo(1000,0);
     $(".line").fadeIn(1000);  
     $("#nav").show();
     $("#arrow-div").show();
+    if(client.engine.ie===0){
     var svg = Snap('#svg');
     var star1Path = svg.select('#star1-path1');
     var star2Path = svg.select('#star1-path2');
@@ -142,12 +163,32 @@ locked=false;
     $("#star2").hide();
     setTimeout(function(){$("#star3").show();},300);
   }
+    //ie
+    if(client.engine.ie===9){
+      $(".svg-div").hide();
+setTimeout(function(){$("#white-ie").show();},300);
+    }
+  }
   function circleColor(){
+    if(client.engine.ie===0){
     for(var i=1;i<6;i++){
       if(i!==num){$("#nav-div"+i).css("background-color","white");}
       else if (i===num) {$("#nav-div"+i).css("background-color","#71c7d5");};
     }
+    }
+    else{   
+     for(var i=1;i<6;i++){
+      if(i!==num){$("#nav-div"+i).children(".nav-ie").hide();}
+      else if (i===num) {$("#nav-div"+i).children(".nav-ie").show();};
+    }
   }
+  }
+    $(".nav-div").mouseenter(function(){
+    $(this).children(".nav-text").fadeIn("50");
+    })
+  $(".nav-div").mouseleave(function(){
+    $(this).children(".nav-text").fadeOut("50");
+    })
   function upDown(offset){
     for(var i=1;i<6;i++){
       var up=$("#resume"+i+"-img");
@@ -162,26 +203,21 @@ locked=false;
       }
     }
   }
-  function resume2Star(){if ($(window).width()>600){
-    $(".starsm-arch-div").show();
-     $("#resume-star").show();
-
+  function resume2Star(){if ($(window).width()>600&&client.engine.ie===0){
+$(".starsm-arch-div").show();
     setTimeout(function() {$("#starsm-text1").animate({top:"0px"},500)}, 80);
     setTimeout(function() {$("#starsm-text2").animate({top:"-100px"},700)}, 0);
     setTimeout(function() {$("#starsm-text3").animate({top:"50px"},600)}, 30);
     setTimeout(function() {$("#starsm-text4").animate({top:"-30px"},300)}, 60);
   }
 }
-  function resume2StarBack(){
-    $(".starsm-arch-div").animate({top:"-300px"},500)
-    setTimeout(function() {$("#resume-star").hide()}, 500);
-  }
-  function resume3Star(){if ($(window).width()>600){
-    $(".starsm-arch-div").show();
+
+  function resume3Star(){if ($(window).width()>600&&client.engine.ie===0){
+    resume2Star();
     $(".starsm-code-div").show();
-$("#starsm-arch").animate({width:"200px"},500);
-$(".starsm-arch-div").children().animate({marginLeft:"-150px"},700);
-    setTimeout(function() {$("#starsm-text5").animate({top:"-100px"},700)}, 0);
+
+$(".starsm-arch-div").animate({width:"100%"},700);
+   setTimeout(function() {$("#starsm-text5").animate({top:"-100px"},700)}, 0);
     setTimeout(function() {$("#starsm-text6").animate({top:"-50px"},600)}, 30);
     setTimeout(function() {$("#starsm-text7").animate({top:"-30px"},300)}, 60);
     setTimeout(function() {$("#starsm-text8").animate({top:"0px"},500)}, 80);
@@ -190,26 +226,21 @@ $(".starsm-arch-div").children().animate({marginLeft:"-150px"},700);
     setTimeout(function() {$("#starsm-text11").animate({top:"-30px"},300)}, 60);
   }
 }
-  function resume3StarBack(){
-    $(".starsm-code-div").animate({top:"-300px"},500)
-    setTimeout(function() {
-      $("#starsm-arch").animate({width:"100%"},500);
-$(".starsm-arch-div").children().animate({marginLeft:"-20%"})  },500)
-}
+
 function resumeStarTo3(){
  
   $(".starsm-code-div").children().css("top","-300px");
   $(".starsm-arch-div").hide();
 }
-
 function resumeStarTo2(){
-resumeStarTo3();
-$("#starsm-arch").animate({width:"100%"},500);
-$(".starsm-arch-div").children().animate({marginLeft:"-20%"})
+  $(".starsm-code-div").children().css("top","-300px");
+  $(".starsm-arch-div").children().css("top","-300px");
+$(".starsm-code-div").hide();
 }
 
   function resume4Down(){
     $('body').animate( {scrollTop: "350px"}, 700);
+    $('html').animate( {scrollTop: "350px"}, 700);
     /*$("#start-div").animate({top:"0px"},400);*/
     $(".line").animate({height:$(".line-div").height()+100},1500);
 
@@ -218,8 +249,10 @@ $(".starsm-arch-div").children().animate({marginLeft:"-20%"})
   }
   function resume4Up(){
     $('body').animate( {scrollTop: "0px"}, 700);
+    $('html').animate( {scrollTop: "0px"}, 700);
     $(".line").animate({height:"0px"},600);
     $('body').animate( {scrollTop: 0}, 50);
+      $('html').animate( {scrollTop: 0}, 50);
     $("#start-div").animate({top:"50%"},500);
     $("body").css("overflow-y","hidden");
   }
@@ -259,15 +292,26 @@ reset();
 
     if(num===5){
       upDown(-1);
+      if(client.engine.ie===0){
       $("#star1").attr("fill","url(#fill-resume5)");
       $("#star3").fadeOut(500);
       setTimeout(function(){$("#star1").fadeOut(500);},800);
+      }
+      else{
+        $("#white-ie").hide();
+      }
     }
     else{
       upDown(0);
-      $("#star1").attr("fill","white");
-      $("#star3").fadeIn(500)
-      $("#star1").fadeIn(500);}
+      if(client.engine.ie===0){
+        $("#star1").attr("fill","white");
+        $("#star3").fadeIn(500)
+        $("#star1").fadeIn(500);
+      }
+      else if(client.engine.ie===9&&num!==0){
+        $("#white-ie").show();
+      }
+    }
     setTimeout(function(){finished=true;},1500);
     }
   
@@ -280,12 +324,7 @@ reset();
     }
   });
 
-  $(".nav-div").mouseenter(function(){
-    $(this).children(".nav-text").fadeIn("50");
-    })
-  $(".nav-div").mouseleave(function(){
-    $(this).children(".nav-text").fadeOut("50");
-    })
+
   $("#title-text").mouseenter(function(){
     $("#title-text").text("READ MY RESUME");
     $("#title-text").css("font-size","200%");

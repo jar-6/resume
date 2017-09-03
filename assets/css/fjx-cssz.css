@@ -171,8 +171,9 @@ body{
 }
 .nav-text{
  
-  position: relative;
+  position: absolute;
   display: none;
+
   left: -45px;
   top: -4px;
   width: 40px;
@@ -183,11 +184,14 @@ body{
   margin-bottom: 20px;
   width: 15px;
   height: 15px;
-  background-color: white;
-  border:1px #71c7d5 solid;
+
   border-radius: 50%;
 }
+.nav-div .nav-ie{
+  display: none;
+  position: absolute;
 
+}
 
 #start-div,#title,.svg-div{
   position: absolute;
@@ -210,6 +214,11 @@ body{
   z-index: 50;
   margin-top: -195px;
   height: 300px;
+}
+#white-ie{
+  display: none;
+  top: -32px;
+  position: relative;
 }
 #title{
   z-index: 100;
@@ -387,41 +396,28 @@ line-height: 50px;
 top: -350px;
 z-index: 300;
  overflow: hidden;
-display: none;
+/*display: none;*/
+display: flex;  
 } 
 
-#starsm-arch,#starsm-code{
-  position: absolute;
- 
 
-  height: 100%;
-display: flex;  
-}
-#starsm-arch{
- width: 600px;
- /*border: 2px red solid;*/
-}
-#starsm-code{
- width: 400px;
- left: 180px;
-
- /*border: 4px blue solid;*/
-}
-.starsm-arch-div,.starsm-code-div{
+#resume-star div{
+ margin-left: -80px;
   flex:1;
+}
+.starsm-code-div{
+display: none;
 }
 .starsm-arch-div div,.starsm-code-div div{
   position: absolute;
-
+text-shadow:0px 0px 4px rgba(0,0,0,1);
   height: 3px;
   border-bottom: 3px #71c7d5 solid;
-   
-   
    text-align: right;
    /*background-color:#71c7d5;*/
    color: white;
    font-weight: bold;
-   padding-right: 30px;
+   padding-right: 10px;
    font-size: 14px;
   width: 500px;
   height: 20px;
@@ -433,68 +429,16 @@ transform:rotate(90deg);
 -o-transform:rotate(90deg);
 
 }
-.starsm-arch-div div{
-  margin-left: -20%;
-}
-.starsm-code-div div{
-  margin-left: -30%;
-}
+
+
 .starsm-arch-div img,.starsm-code-div img{
   position: absolute;
-  width: 30px;
-  height: 30px;
-  bottom: -15px;
-  right: -15px;
+  width: 22px;
+  height: 22px;
+  bottom: -12px;
+  right: -12px;
 
 }
 
-/*
-#starsm-arch2{
-  left:50%;
-  top: 7.5%;
-  width:60px;
-  height:60px;  
-}
-#starsm-arch3{
-  left:75%;
-  top: 40%;
-  width:35px;
-  height:35px;  
-}
-#starsm-code1{
-  left:5%;
-  top: 30%;
-  width:40px;
-  height:40px;  
-}
-#starsm-code2{
-  left:30%;
-  top: 20%;
-  width:50px;
-  height:50px;  
-}
-#starsm-code3{
-  left:40%;
-  top: 20%;
-  width:25px;
-  height:25px;  
-}
-#starsm-code4{
-  left:46.3%;
-  top: 25%;
-  width:25px;
-  height:25px;  
-}
-#starsm-code5{
-  left:66.3%;
-  top: 12.5%;
-  width:30px;
-  height:30px;  
-}
-#starsm-code6{
-  left:83%;
-  top: 25%;
-  width:45px;
-  height:45px;  
-}*//*starsm*/
+
 
