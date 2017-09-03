@@ -204,7 +204,7 @@ setTimeout(function(){$("#white-ie").show();},300);
     }
   }
   function resume2Star(){if ($(window).width()>600&&client.engine.ie===0){
-    $("#resume-star").show();
+    $("#resume-star").css("display","flex");
     $(".starsm-arch-div").show();
     setTimeout(function() {$("#starsm-text1").animate({top:"0px"},500)}, 80);
     setTimeout(function() {$("#starsm-text2").animate({top:"-100px"},700)}, 0);
@@ -215,7 +215,7 @@ setTimeout(function(){$("#white-ie").show();},300);
 
   function resume3Star(){if ($(window).width()>600&&client.engine.ie===0){
     resume2Star();
-    $("#resume-star").show();
+    $("#resume-star").css("display","flex");
     $(".starsm-code-div").show();
 
 $(".starsm-arch-div").animate({width:"100%"},700);
@@ -229,20 +229,15 @@ $(".starsm-arch-div").animate({width:"100%"},700);
   }
 }
 
-function resumeStarTo3(){
+function resumeStarTo(){
  
   $(".starsm-code-div").children().animate({top:"-300px"},500);
   $(".starsm-arch-div").children().animate({top:"-300px"},500);
-
+setTimeout(function() {$(".starsm-code-div").hide()}, 500);
   setTimeout(function() {$("#resume-star").hide()}, 500);
  
 }
-function resumeStarTo2(){
-resumeStarTo3();
-    setTimeout(function() {$(".starsm-code-div").hide()}, 500);
 
-
-}
 
   function resume4Down(){
     $('body').animate( {scrollTop: "350px"}, 700);
@@ -281,12 +276,9 @@ reset();
       resume3Star();
       
     }
-    else if(num>3){
-      resumeStarTo3();
-      
-    }
+
     else{
-     resumeStarTo2(); 
+     resumeStarTo(); 
     }
 
     if (num===4) {
