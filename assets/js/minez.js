@@ -204,7 +204,8 @@ setTimeout(function(){$("#white-ie").show();},300);
     }
   }
   function resume2Star(){if ($(window).width()>600&&client.engine.ie===0){
-$(".starsm-arch-div").show();
+    $("#resume-star").show();
+    $(".starsm-arch-div").show();
     setTimeout(function() {$("#starsm-text1").animate({top:"0px"},500)}, 80);
     setTimeout(function() {$("#starsm-text2").animate({top:"-100px"},700)}, 0);
     setTimeout(function() {$("#starsm-text3").animate({top:"50px"},600)}, 30);
@@ -214,28 +215,33 @@ $(".starsm-arch-div").show();
 
   function resume3Star(){if ($(window).width()>600&&client.engine.ie===0){
     resume2Star();
+    $("#resume-star").show();
     $(".starsm-code-div").show();
 
 $(".starsm-arch-div").animate({width:"100%"},700);
-   setTimeout(function() {$("#starsm-text5").animate({top:"-100px"},700)}, 0);
+   setTimeout(function() {$("#starsm-text5").animate({top:"-60px"},700)}, 0);
     setTimeout(function() {$("#starsm-text6").animate({top:"-50px"},600)}, 30);
-    setTimeout(function() {$("#starsm-text7").animate({top:"-30px"},300)}, 60);
-    setTimeout(function() {$("#starsm-text8").animate({top:"0px"},500)}, 80);
-    setTimeout(function() {$("#starsm-text9").animate({top:"-100px"},700)}, 0);
-    setTimeout(function() {$("#starsm-text10").animate({top:"50px"},600)}, 30);
-    setTimeout(function() {$("#starsm-text11").animate({top:"-30px"},300)}, 60);
+    setTimeout(function() {$("#starsm-text7").animate({top:"0px"},300)}, 60);
+    setTimeout(function() {$("#starsm-text8").animate({top:"-30px"},500)}, 80);
+    setTimeout(function() {$("#starsm-text9").animate({top:"-80px"},700)}, 0);
+    setTimeout(function() {$("#starsm-text10").animate({top:"20px"},600)}, 30);
+    setTimeout(function() {$("#starsm-text11").animate({top:"-100px"},300)}, 60);
   }
 }
 
 function resumeStarTo3(){
  
-  $(".starsm-code-div").children().css("top","-300px");
-  $(".starsm-arch-div").hide();
+  $(".starsm-code-div").children().animate({top:"-300px"},500);
+  $(".starsm-arch-div").children().animate({top:"-300px"},500);
+
+  setTimeout(function() {$("#resume-star").hide()}, 500);
+ 
 }
 function resumeStarTo2(){
-  $(".starsm-code-div").children().css("top","-300px");
-  $(".starsm-arch-div").children().css("top","-300px");
-$(".starsm-code-div").hide();
+resumeStarTo3();
+    setTimeout(function() {$(".starsm-code-div").hide()}, 500);
+
+
 }
 
   function resume4Down(){
