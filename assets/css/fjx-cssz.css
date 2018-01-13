@@ -291,6 +291,8 @@ body{
 }
 .resume-text{
     line-height: 27px;
+    font-weight: 300;
+    font-size: 12px;
 /*
   position: relative;
 
@@ -335,6 +337,9 @@ line-height: 50px;
 .work-web-sm{
     margin-bottom: 20px;
     font-weight: lighter;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
 }
 
 .work-web-mask{
